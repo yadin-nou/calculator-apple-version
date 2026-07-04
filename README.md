@@ -8,7 +8,7 @@ Project Workflow:
 
 1. Create HTML
    - Using google font
-   - Using element such <div> which has class .wrapper, inside has element <div> class calculator. Inside this <div> we have 19 <div> elements to create button for calculator.
+   - Using element such <div> which has class .wrapper, inside has element <div> class calculator. Inside this <div> we have one <div> for display result and 19 <div> elements to create button for calculator.
 2. Apply CSS
    - Using color which is similar to apple calculator in Mac.
    - Using flex box for alignment the calculator

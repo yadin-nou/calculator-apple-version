@@ -1,0 +1,150 @@
+.arbutus-regular {
+  font-family: "Arbutus", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+:root {
+  --operationColor: #ff9f0c;
+  --cleaBtnColor: #656667;
+  --displayColor: #545556;
+  --butonColor: #7e7f80;
+  --primaryClr: green;
+  --secondaryClr: lightGreen;
+  --trClr: yellow;
+}
+* {
+  /* changes how an element's width and height are calculated. */
+  box-sizing: border-box;
+}
+body {
+  margin: 0px;
+  font-size: 2rem;
+}
+.wrapper {
+  /* background-image: url("./assists/images/apple_background.png");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background: linear-gradient(var(--trClr), var(--primaryClr));
+  height: 100vh;
+}
+.DisplayFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calculator {
+  display: grid;
+  grid-template-areas:
+    "display display display display"
+    "btn-ac btn-c btn-mod btn-divide"
+    "btn-7 btn-8 btn-9 btn-mul"
+    "btn-4 btn-5 btn-6 btn-minus"
+    "btn-1 btn-2 btn-3 btn-plus"
+    "btn-0 btn-0 btn-dot btn-equal";
+  width: 30%;
+  height: 50vh;
+  border: 1px solid;
+  border-radius: 2px;
+  box-shadow: 0px 10px 5px var(--displayColor) inset;
+}
+.display {
+  grid-area: display;
+  height: 100%;
+  width: 100%;
+  background-color: var(--displayColor);
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  align-content: center;
+  text-align: end;
+  border-radius: 2px;
+}
+.btn {
+  border: 1px solid var(--displayColor);
+  border-radius: 1px;
+  color: white;
+  box-shadow: 0px 0px 5px;
+  text-align: center;
+  align-content: center;
+}
+.btn:hover {
+  background-color: var(--operationColor);
+  cursor: pointer;
+}
+.btn-ac {
+  grid-area: btn-ac;
+  background-color: var(--cleaBtnColor);
+}
+.btn-c {
+  grid-area: btn-c;
+  background-color: var(--cleaBtnColor);
+}
+.btn-mod {
+  grid-area: btn-mod;
+  background-color: var(--cleaBtnColor);
+}
+.btn-divide {
+  grid-area: btn-divide;
+  background-color: var(--operationColor);
+}
+
+.btn-7 {
+  grid-area: btn-7;
+  background-color: var(--butonColor);
+}
+.btn-8 {
+  grid-area: btn-8;
+  background-color: var(--butonColor);
+}
+.btn-9 {
+  grid-area: btn-9;
+  background-color: var(--butonColor);
+}
+.btn-mul {
+  grid-area: btn-mul;
+  background-color: var(--operationColor);
+}
+.btn-4 {
+  grid-area: btn-4;
+  background-color: var(--butonColor);
+}
+.btn-5 {
+  grid-area: btn-5;
+  background-color: var(--butonColor);
+}
+.btn-6 {
+  grid-area: btn-6;
+  background-color: var(--butonColor);
+}
+.btn-minus {
+  grid-area: btn-minus;
+  background-color: var(--operationColor);
+}
+.btn-1 {
+  grid-area: btn-1;
+  background-color: var(--butonColor);
+}
+.btn-2 {
+  grid-area: btn-2;
+  background-color: var(--butonColor);
+}
+.btn-3 {
+  grid-area: btn-3;
+  background-color: var(--butonColor);
+}
+.btn-plus {
+  grid-area: btn-plus;
+  background-color: var(--operationColor);
+}
+.btn-0 {
+  grid-area: btn-0;
+  background-color: var(--butonColor);
+}
+.btn-dot {
+  grid-area: btn-dot;
+  background-color: var(--butonColor);
+}
+.btn-equal {
+  grid-area: btn-equal;
+  background-color: var(--operationColor);
+}

@@ -21,14 +21,15 @@ body {
   font-size: 2rem;
 }
 .wrapper {
-  /* background-image: url("./assists/images/apple_background.png");
+  background-image: url("./assists/images/apple_background.png");
   background-repeat: no-repeat;
-  background-size: cover; */
-  background: linear-gradient(var(--trClr), var(--primaryClr));
+  background-size: cover;
+  /* background: linear-gradient(var(--trClr), var(--primaryClr)); */
   height: 100vh;
 }
 .DisplayFlex {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -85,7 +86,7 @@ body {
 }
 .btn:active {
   border-radius: 1px;
-  background-color: var(--displayColor);
+  background-color: var(--cleaBtnColor);
   box-shadow: 10px 10px 20px;
 }
 .btn-ac {

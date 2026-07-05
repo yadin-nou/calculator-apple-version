@@ -44,8 +44,20 @@ body {
   width: 30%;
   height: 50vh;
   border: 1px solid;
-  border-radius: 2px;
+  border-radius: 5px;
   box-shadow: 0px 10px 5px var(--displayColor) inset;
+  animation: "moving" 2s;
+  /* transform: perspective(20rem) rotateY(30deg); */
+}
+@keyframes moving {
+  /* adds a 3D viewing perspective.rotateX(30deg)
+     rotates the element 30 degrees around the X-axis (the horizontal axis). */
+  0% {
+    transform: perspective(10rem) rotateY(30deg);
+  }
+  100% {
+    transform: perspective(70rem) rotateY(30deg);
+  }
 }
 .display {
   grid-area: display;
@@ -57,7 +69,7 @@ body {
   font-size: 2rem;
   align-content: center;
   text-align: end;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 .btn {
   border: 1px solid var(--displayColor);

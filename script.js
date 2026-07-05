@@ -1,7 +1,7 @@
 let totalData = "";
 const getButtonData = document.querySelectorAll(".btn");
 let display = document.querySelector(".display");
-let operator = ["/", "*", "-", "+"];
+let operator = ["/", "*", "-", "+", "%"];
 let lastOperator = "";
 const buttonClick = (btn) => {
   btn.addEventListener("click", () => {
@@ -47,24 +47,27 @@ const buttonClick = (btn) => {
       }
       totalData += dot;
     } else if (operator.includes(btn.innerText)) {
-      totalData += btn.innerText;
+      //totalData += btn.innerText;
       //get the last operator when user clicked
       lastOperator = btn.innerText;
-      //console.log("Not 0.0", lastOperator);
-      let lastCharIndex = totalData.lastIndexOf(lastOperator);
-      // console.log(lastCharIndex + 1);
-      let lastChar = totalData.slice(lastCharIndex);
 
-      if (totalData !== "0.0") {
-        operator.forEach((op) => {
-          if (totalData.includes(op)) {
-            //console.log()
-          } else {
-          }
-        });
+      if (display.innerText !== "0.0") {
+        //console.log(totalData);
+        let lastChar = totalData.slice(-1);
+        if (operator.includes(lastChar)) {
+          //Replace a new operator when click on it multiple time, to show only one time
+          totalData = totalData.slice(0, -1) + btn.innerText;
+        } else {
+          totalData += btn.innerText;
+        }
       } else {
         //totalData will assigin operator when it has 0.0
         totalData = btn.innerText;
+      }
+    } else if (btn.innerText === "=") {
+      //convert eval back to string
+      if (!operator.includes(totalData.slice(-1))) {
+        totalData = String(eval(totalData));
       }
     } else {
       if (totalData === "0.0") {
@@ -77,8 +80,16 @@ const buttonClick = (btn) => {
   });
 };
 
+const buttonMouseDown = (btn) => {
+  btn.addEventListener("mousedown", () => {
+    btn.classList.add("btn");
+    // console.log("press");
+  });
+};
+
 getButtonData.forEach((btn) => {
   buttonClick(btn);
+  buttonMouseDown(btn);
 });
 
 const displayResult = () => {

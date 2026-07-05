@@ -3,8 +3,10 @@ const getButtonData = document.querySelectorAll(".btn");
 let display = document.querySelector(".display");
 let operator = ["/", "*", "-", "+", "%"];
 let lastOperator = "";
+const audioPlay = new Audio("./assists/aa.wav");
 const buttonClick = (btn, btnValue) => {
   btn.addEventListener("click", () => {
+    display.classList.remove("prank");
     calculatorAction(btnValue);
   });
 };
@@ -12,8 +14,6 @@ const buttonClick = (btn, btnValue) => {
 const buttonMouseDown = (btn) => {
   btn.addEventListener("mousedown", () => {
     btn.classList.add("btn");
-    //  btn.removeAttribute("style");
-    // console.log("press");
   });
 };
 
@@ -86,9 +86,15 @@ const calculatorAction = (btnValue) => {
       totalData = btnValue;
     }
   } else if (btnValue === "=" || btnValue === "Enter") {
+    display.classList.remove("prank");
     //convert eval back to string
     if (!operator.includes(totalData.slice(-1))) {
       totalData = String(eval(totalData));
+      console.log(RandomValue(), totalData);
+      if (totalData === String(RandomValue())) {
+        display.classList.add("prank");
+        audioPlay.play();
+      }
     }
   } else {
     if (totalData === "0.0") {
@@ -99,10 +105,17 @@ const calculatorAction = (btnValue) => {
   }
   displayResult();
 };
+const RandomValue = () => {
+  const num = Math.floor(Math.random() * 10);
+  //console.log(num);
+  return num;
+};
+
 const keyAllowed = "0123456789+-*/.%Enter";
 document.addEventListener("keypress", (e) => {
   const value = e.key;
   if (keyAllowed.includes(e.key)) {
+    display.classList.remove("prank");
     calculatorAction(value);
   }
 });

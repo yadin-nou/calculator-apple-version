@@ -21,12 +21,29 @@ body {
   font-size: 2rem;
 }
 .wrapper {
+  background: linear-gradient(var(--trClr), var(--primaryClr));
+  height: 100vh;
+}
+.wrapper-apple {
   background-image: url("./assists/images/apple_background.png");
   background-repeat: no-repeat;
   background-size: cover;
-  /* background: linear-gradient(var(--trClr), var(--primaryClr)); */
   height: 100vh;
 }
+.changeBG {
+  background: rgb(var(--trClr), var(--primaryClr));
+  color: white;
+  animation: "running" 10s linear infinite;
+}
+@keyframes running {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .DisplayFlex {
   display: flex;
   flex-direction: column;
@@ -86,7 +103,7 @@ body {
 }
 .btn:active {
   border-radius: 1px;
-  background-color: var(--cleaBtnColor);
+  background-color: var(--displayColor);
   box-shadow: 10px 10px 20px;
 }
 .btn-ac {

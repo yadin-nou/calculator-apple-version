@@ -110,7 +110,11 @@ const RandomValue = () => {
   //console.log(num);
   return num;
 };
-
+const changeBg = document.querySelector("body");
+const wrapper = document.querySelector(".wrapper");
+changeBg.addEventListener("click", () => {
+  wrapper.classList.toggle("wrapper-apple");
+});
 const keyAllowed = "0123456789+-*/.%Enter";
 document.addEventListener("keypress", (e) => {
   const value = e.key;

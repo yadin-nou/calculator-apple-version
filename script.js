@@ -4,6 +4,8 @@ let display = document.querySelector(".display");
 let operator = ["/", "*", "-", "+", "%"];
 let lastOperator = "";
 const audioPlay = new Audio("./assists/aa.wav");
+const keyAllowed = "0123456789+-*/.%Enter=cac";
+
 const buttonClick = (btn, btnValue) => {
   btn.addEventListener("click", () => {
     display.classList.remove("prank");
@@ -90,7 +92,7 @@ const calculatorAction = (btnValue) => {
     //convert eval back to string
     if (!operator.includes(totalData.slice(-1))) {
       totalData = String(eval(totalData));
-      console.log(RandomValue(), totalData);
+      // console.log(RandomValue(), totalData);
       if (totalData === String(RandomValue())) {
         display.classList.add("prank");
         audioPlay.play();
@@ -110,12 +112,17 @@ const RandomValue = () => {
   //console.log(num);
   return num;
 };
-const changeBg = document.querySelector("body");
-const wrapper = document.querySelector(".wrapper");
-changeBg.addEventListener("click", () => {
-  wrapper.classList.toggle("wrapper-apple");
-});
-const keyAllowed = "0123456789+-*/.%Enter";
+
+// const changeBg = document.body;
+// const wrapper = document.querySelector(".wrapper");
+// changeBg.addEventListener("click", (e) => {
+//   if (e.target !== changeBg) {
+//     return;
+//   }
+//   wrapper.classList.toggle("wrapper-apple");
+//   console.log(changeBg);
+// });
+
 document.addEventListener("keypress", (e) => {
   const value = e.key;
   if (keyAllowed.includes(e.key)) {
